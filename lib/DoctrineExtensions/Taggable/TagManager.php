@@ -104,8 +104,14 @@ class TagManager
      * @param null $encoding
      * @return int
      */
-    public function mb_strcasecmp($str1, $str2, $encoding = null) {
-        if (null === $encoding) { $encoding = mb_internal_encoding(); }
+    public function mb_strcasecmp($str1, $str2, $encoding = null) 
+	{
+		mb_internal_encoding('UTF-8');
+		
+        if (null === $encoding) { 
+			$encoding = mb_internal_encoding(); 
+		}
+		
         return strcmp(mb_strtolower($str1, $encoding), mb_strtolower($str2, $encoding));
     }
 
